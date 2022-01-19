@@ -58,7 +58,7 @@ context master {
         DIM_UNIT:String(2);
     }
 
-    entity employees: cuid, temporal {
+    entity employees: cuid {
         nameFirst: String(40);
         nameMiddle: String(40);	
         nameLast: String(40);	
