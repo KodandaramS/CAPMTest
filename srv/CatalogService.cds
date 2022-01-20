@@ -1,4 +1,4 @@
-using { EDM.db.master, EDM.db.transaction } from '../db/datamodel';
+using { EDM.db.master, EDM.db.transaction, EDM.db.CDSView } from '../db/datamodel';
 
 
 service CatalogService@(path:'/CatalogService') {
@@ -25,4 +25,9 @@ service CatalogService@(path:'/CatalogService') {
         PRODUCT_GUID: redirected to ProductSet
     }
 
+    entity POWorklist as projection on CDSView.POWorklist;
+    entity ProductOrders as projection on CDSView.ProductViewSub;
+    entity ProductAggregation as projection on CDSView.CProductValuesView excluding{
+        ProductId
+    };
 }
