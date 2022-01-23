@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_BP" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="true">
+<descriptions defaultDescription="CV_BP"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="EDM_DB_MASTER_BUSINESSPARTNER">
+    <resourceUri>EDM_DB_MASTER_BUSINESSPARTNER</resourceUri>
+  </DataSource>
+  <DataSource id="EDM_DB_MASTER_ADDRESS">
+    <resourceUri>EDM_DB_MASTER_ADDRESS</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="C1_1" joinType="referential">
+    <viewAttributes>
+      <viewAttribute id="NODE_KEY"/>
+      <viewAttribute id="BP_ROLE"/>
+      <viewAttribute id="EMAIL_ADDRESS"/>
+      <viewAttribute id="PHONE_NUMBER"/>
+      <viewAttribute id="FAX_NUMBER"/>
+      <viewAttribute id="WEB_ADDRESS"/>
+      <viewAttribute id="ADDRESS_GUID_NODE_KEY"/>
+      <viewAttribute id="BP_ID"/>
+      <viewAttribute id="COMPANY_NAME"/>
+    
+      <viewAttribute id="NODE_KEY_1"/>
+      <viewAttribute id="CITY"/>
+      <viewAttribute id="POSTAL_CODE"/>
+      <viewAttribute id="STREET"/>
+      <viewAttribute id="BUILDING"/>
+      <viewAttribute id="COUNTRY"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="EDM_DB_MASTER_BUSINESSPARTNER">
+      <mapping xsi:type="Calculation:AttributeMapping" target="NODE_KEY" source="NODE_KEY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BP_ROLE" source="BP_ROLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="EMAIL_ADDRESS" source="EMAIL_ADDRESS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PHONE_NUMBER" source="PHONE_NUMBER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FAX_NUMBER" source="FAX_NUMBER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="WEB_ADDRESS" source="WEB_ADDRESS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ADDRESS_GUID_NODE_KEY" source="ADDRESS_GUID_NODE_KEY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BP_ID" source="BP_ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COMPANY_NAME" source="COMPANY_NAME"/>
+    </input>
+    <input node="EDM_DB_MASTER_ADDRESS">
+      <mapping xsi:type="Calculation:AttributeMapping" target="NODE_KEY_1" source="NODE_KEY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CITY" source="CITY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="POSTAL_CODE" source="POSTAL_CODE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="STREET" source="STREET"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BUILDING" source="BUILDING"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COUNTRY" source="COUNTRY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ADDRESS_GUID_NODE_KEY" source="NODE_KEY"/>
+    </input>
+    <joinAttribute name="ADDRESS_GUID_NODE_KEY"/>
+  </calculationView>
+</calculationViews>
+
+<logicalModel id="Join_1">
+  <attributes>
+    <attribute id="NODE_KEY" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NODE_KEY"/>
+      <keyMapping columnObjectName="Join_1" columnName="NODE_KEY"/>
+    </attribute>
+    <attribute id="BP_ROLE" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BP_ROLE"/>
+      <keyMapping columnObjectName="Join_1" columnName="BP_ROLE"/>
+    </attribute>
+    <attribute id="EMAIL_ADDRESS" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EMAIL_ADDRESS"/>
+      <keyMapping columnObjectName="Join_1" columnName="EMAIL_ADDRESS"/>
+    </attribute>
+    <attribute id="PHONE_NUMBER" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PHONE_NUMBER"/>
+      <keyMapping columnObjectName="Join_1" columnName="PHONE_NUMBER"/>
+    </attribute>
+    <attribute id="FAX_NUMBER" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FAX_NUMBER"/>
+      <keyMapping columnObjectName="Join_1" columnName="FAX_NUMBER"/>
+    </attribute>
+    <attribute id="WEB_ADDRESS" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WEB_ADDRESS"/>
+      <keyMapping columnObjectName="Join_1" columnName="WEB_ADDRESS"/>
+    </attribute>
+    <attribute id="ADDRESS_GUID_NODE_KEY" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ADDRESS_GUID_NODE_KEY"/>
+      <keyMapping columnObjectName="Join_1" columnName="ADDRESS_GUID_NODE_KEY"/>
+    </attribute>
+    <attribute id="BP_ID" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BP_ID"/>
+      <keyMapping columnObjectName="Join_1" columnName="BP_ID"/>
+    </attribute>
+    <attribute id="COMPANY_NAME" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="COMPANY_NAME"/>
+      <keyMapping columnObjectName="Join_1" columnName="COMPANY_NAME"/>
+    </attribute>
+    <attribute id="NODE_KEY_1" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NODE_KEY_1"/>
+      <keyMapping columnObjectName="Join_1" columnName="NODE_KEY_1"/>
+    </attribute>
+    <attribute id="CITY" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CITY"/>
+      <keyMapping columnObjectName="Join_1" columnName="CITY"/>
+    </attribute>
+    <attribute id="POSTAL_CODE" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="POSTAL_CODE"/>
+      <keyMapping columnObjectName="Join_1" columnName="POSTAL_CODE"/>
+    </attribute>
+    <attribute id="STREET" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="STREET"/>
+      <keyMapping columnObjectName="Join_1" columnName="STREET"/>
+    </attribute>
+    <attribute id="BUILDING" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BUILDING"/>
+      <keyMapping columnObjectName="Join_1" columnName="BUILDING"/>
+    </attribute>
+    <attribute id="COUNTRY" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="COUNTRY"/>
+      <keyMapping columnObjectName="Join_1" columnName="COUNTRY"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+    
+  
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-111" y="196"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="EDM_DB_MASTER_BUSINESSPARTNER" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="35" y="30"/>
+      <rectangleSize width="297"/>
+    </shape>
+    <shape modelObjectName="EDM_DB_MASTER_ADDRESS" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="460" y="33"/>
+      <rectangleSize width="237"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
