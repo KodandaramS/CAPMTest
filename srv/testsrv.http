@@ -1,7 +1,7 @@
 ##Test get of service end points for v4 and v2
 GET http://localhost:4004/CatalogService
 
-##V2Service
+###V2Service
 GET http://localhost:4004/v2/CatalogService
 
 ###Read Purchase orders
@@ -55,3 +55,40 @@ Content-Type: application/json;IEEE754Compatible=true
 	"OVERALL_STATUS": "P",
 	"PARTNER_GUID_NODE_KEY": "74867AD200E41EDBA5D8B06885B04052"
 }
+
+###READ Custom service
+GET http://localhost:4004/mysrv/ReadEmployeeSrv
+
+
+###UPDATE Custom service
+POST http://localhost:4004/mysrv/InsertEmployeeSrv
+Content-Type: application/json;IEEE754Compatible=true
+
+{           
+    "ID": "02BD2137-0890-1EEA-A6C2-BB55C1978969",
+    "nameFirst": "Kodandaram",
+    "nameMiddle": null,
+    "nameLast": "S",
+    "nameInitials": null,
+    "sex": "M",
+    "language": "E",
+    "phoneNumber": "+91 (123) 456-7890",
+    "email": "s.kodandaram@gmail.com",
+    "loginName": "KSURAVAR",
+    "accountNumber": "111222333",
+    "bankName": "Yes Bank"
+
+}
+
+###Update using Custom Handler
+PUT  http://localhost:4004/mysrv/UpdateEmployeeSrv/02BD2137-0890-1EEA-A6C2-BB55C1978969
+Content-Type: application/json;IEEE754Compatible=true
+
+{           
+    "ID": "02BD2137-0890-1EEA-A6C2-BB55C19867FB",
+    "nameFirst": "Chrisopher",
+    "nameLast": "Columbus"
+}
+
+###DELETE The data using Custom Handler
+DELETE http://localhost:4004/mysrv/DeleteEmployeeSrv/02BD2137-0890-1EEA-A6C2-BB55C1978969

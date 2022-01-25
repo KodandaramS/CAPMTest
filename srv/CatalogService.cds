@@ -2,9 +2,11 @@ using { EDM.db.master, EDM.db.transaction, EDM.db.CDSView } from '../db/datamode
 
 
 service CatalogService@(path:'/CatalogService') {
-
+    // @readonly
+    @Capabilities : { Insertable, Updatable, Deletable: false }
     entity EmployeeSet as projection on master.employees;
 
+    @Capabilities : { Readable: false }
     entity AddressSet as projection on master.address;
 
     entity ProductSet as projection on master.product;
