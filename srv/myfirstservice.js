@@ -22,7 +22,6 @@ const myfirstservice = function (srv) {
         return result;
     }
 
-
     srv.on("CREATE", "InsertEmployeeSrv", async(req,res) =>{
         console.log(req.data);
         var dataSet = [];
