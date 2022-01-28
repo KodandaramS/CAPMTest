@@ -1,4 +1,7 @@
-
 # auto generated wildcard
 db/.env
 node_modules
+gen
+mtar_archieve
+# added by cds deploy
+default-env.json

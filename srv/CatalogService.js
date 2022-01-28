@@ -12,7 +12,7 @@ module.exports = cds.service.impl(
                 //res.send("Dude, not allowed salary");
             }
         });
-
+        
         this.on('boost', async req => {
             try {
                 const ID = req.params[0];
@@ -20,9 +20,8 @@ module.exports = cds.service.impl(
                 const tx = cds.tx(req);
                 await tx.update(POs).with({
                     GROSS_AMOUNT: { '+=' : 20000 }, NOTE: "Boosted!!"
-                }).where(ID);
+                }).where({ID:ID});
                 return {};
-    
             } catch (error) {
                 return "Error " + error.toString();
             }
