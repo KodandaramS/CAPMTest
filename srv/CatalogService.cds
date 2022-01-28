@@ -1,7 +1,9 @@
 using { EDM.db.master, EDM.db.transaction, EDM.db.CDSView } from '../db/datamodel';
 
 
-service CatalogService@(path:'/CatalogService') {
+service CatalogService@(path:'/CatalogService') 
+    @(requires: 'authenticated-user')
+{
     // @readonly
     @Capabilities : { Insertable, Updatable, Deletable: false }
     entity EmployeeSet as projection on master.employees;

@@ -8,8 +8,11 @@
     "dependencies": {
         "@sap/cds": "^5",
         "@sap/cds-odata-v2-adapter-proxy": "^1.8.5",
+        "@sap/xsenv": "^3.2.0",
+        "@sap/xssec": "^3.2.12",
         "express": "^4",
-        "hdb": "^0.18.3"
+        "hdb": "^0.18.3",
+        "passport": "^0.5.2"
     },
     "devDependencies": {
         "@sap/eslint-plugin-ui5-jsdocs": "^2.0.5",
@@ -54,6 +57,41 @@
             "target": "./gen"
         },
         "requires": {
+            "uaa": {
+                "kind": "xsuaa"
+            },
+            "auth": {
+                "[production]": {
+                    "strategy": "JWT"
+                },
+                "[development]": {
+                    "strategy": "mock",
+                    "users": {
+                        "ram": {
+                            "roles": [
+                                "Admin",
+                                "Viewer"
+                            ],
+                            "userAttributes": {
+                                "BankName": [
+                                    "$UNRESTRICTED"
+                                ]
+                            }
+                        },
+                        "ramtest": {
+                            "roles": [
+                                "Viewer"
+                            ],
+                            "userAttributes": {
+                                "BankName": [
+                                    "My Bank of London",
+                                    "My Bank of New York"
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
             "db": {
                 "kind": "hana"
             }
