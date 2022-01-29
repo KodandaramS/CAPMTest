@@ -27,8 +27,8 @@ Content-Type: application/json
 
 
 ###Read Single Employee Which was just created
-GET http://localhost:4004/CatalogService/EmployeeSet/229017d0-a3ea-4812-b2bb-a61757c88fbb
-Authorization: Basic ram:
+GET http://localhost:4004/CatalogService/EmployeeSet
+Authorization: Basic ramtest:
 
 ###Update the salary for the employee
 PATCH http://localhost:4004/CatalogService/EmployeeSet/229017d0-a3ea-4812-b2bb-a61757c88fbb

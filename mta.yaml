@@ -8,6 +8,7 @@ modules:
     path: gen/srv
     requires:
       - name: pocapapp-db
+      - name: pocapapp-xsuaa
     provides:
       - name: srv-api
         properties:
@@ -27,13 +28,14 @@ modules:
     type: nodejs
     path: app
     requires:
-    - name: srv-api
-      group: destinations
-      properties:
-        name: srv-api
-        strictSSL: true
-        forwardAuthToken: true
-        url: '~{srv-url}'
+      - name: srv-api
+        group: destinations
+        properties:
+          name: srv-api
+          strictSSL: true
+          forwardAuthToken: true
+          url: '~{srv-url}'
+      - name: pocapapp-xsuaa
 resources:
   - name: pocapapp-db
     type: com.sap.xs.hdi-container
@@ -42,6 +44,18 @@ resources:
       service-plan: hdi-shared
     properties:
       hdi-service-name: '${service-name}'
+  - name: pocapapp-xsuaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-plan: application
+      path: ./xs-security.json
+  - name: cross-container-service
+    type: org.cloudfoundry.existing-service
+    parameters:
+      service-name: MY_SFLIGHT_SRV
+    properties:
+      the-service-name: '${service-name}'
 parameters:
   enable-parallel-deployments: true
 build-parameters:
